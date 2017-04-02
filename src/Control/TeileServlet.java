@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import 
 
-import Model.DBManager;
+//import Model.DBManager;
 import Model.Teile;
 
 
@@ -39,11 +40,11 @@ public class TeileServlet extends HttpServlet {
 		try {
 			String bez = (String) request.getParameter("bezeichnung");
 			System.out.println("Bez:" +bez);
-			
+			 
 			//DBManager db = new DBManager();
 			//ArrayList<Teile> teile = db.searchTeile(bez);
 			ArrayList<Teile> teile = new ArrayList<Teile>();
-			teile.add(new Teile(1,2,"golf 4er; golf 5er", 500, true, "Ölwann"));
+			teile.add(new Teile(1,2,"golf 4er; golf 5er", 500, true, "Ölwanne"));
 			
 			for(Teile t : teile){
 				System.out.println("Teil: "+t);
@@ -52,7 +53,7 @@ public class TeileServlet extends HttpServlet {
 			HttpSession sess = request.getSession(true);
 			
 			sess.setAttribute("Teile", teile);
-			db.close();
+			//db.close();
 			response.sendRedirect("Teile.jsp");
 		} catch (Exception e1) {
 			e1.printStackTrace();
