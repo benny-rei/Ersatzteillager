@@ -40,8 +40,10 @@ public class TeileServlet extends HttpServlet {
 			String bez = (String) request.getParameter("bezeichnung");
 			System.out.println("Bez:" +bez);
 			
-			DBManager db = new DBManager();
-			ArrayList<Teile> teile = db.searchTeile(bez);
+			//DBManager db = new DBManager();
+			//ArrayList<Teile> teile = db.searchTeile(bez);
+			ArrayList<Teile> teile = new ArrayList<Teile>();
+			teile.add(new Teile(1,2,"golf 4er; golf 5er", 500, true, "Ölwann"));
 			
 			for(Teile t : teile){
 				System.out.println("Teil: "+t);
