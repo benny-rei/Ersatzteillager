@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 //import Model.DBManager;
-import com.google.gson.Gson;
 import Model.Teile;
 
 
@@ -37,6 +36,7 @@ public class TeileServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 			
+		
 		try {
 			String bez = (String) request.getParameter("bezeichnung");
 			System.out.println("Bez:" +bez);
@@ -46,12 +46,9 @@ public class TeileServlet extends HttpServlet {
 			ArrayList<Teile> teile = new ArrayList<Teile>();
 			teile.add(new Teile(1,2,"golf 4er; golf 5er", 500, true, "Ölwanne"));
 			
-			for(Teile t : teile){
-				System.out.println("Teil: "+t);
-			}
 			
 			HttpSession sess = request.getSession(true);
-			
+						
 			sess.setAttribute("Teile", teile);
 			//db.close();
 			response.sendRedirect("Teile.jsp");
