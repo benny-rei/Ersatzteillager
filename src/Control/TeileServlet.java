@@ -39,7 +39,7 @@ public class TeileServlet extends HttpServlet {
 		try {
 			String bez = (String) request.getParameter("bezeichnung");
 			System.out.println("Bez:" +bez);
-			
+			 
 			//DBManager db = new DBManager();
 			//ArrayList<Teile> teile = db.searchTeile(bez);
 			ArrayList<Teile> teile = new ArrayList<Teile>();
