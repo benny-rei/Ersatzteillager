@@ -37,11 +37,11 @@ public class TeileServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 			
 		try {
-			String bez = request.getParameter("bezeichnung");
+			String bez = (String) request.getParameter("bezeichnung");
 			System.out.println("Bez:" +bez);
 			
 			DBManager db = new DBManager();
-			ArrayList<Teile> teile = db.searchTeile(17);
+			ArrayList<Teile> teile = db.searchTeile(bez);
 			
 			for(Teile t : teile){
 				System.out.println("Teil: "+t);

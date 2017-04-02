@@ -211,7 +211,6 @@ public class DBManager {
 			
 			rs = stmt.executeQuery();
 		
-			stmt.close();
 			
 			while(rs.next()){
 				Teile t = new Teile();
@@ -226,7 +225,10 @@ public class DBManager {
 				teileAL.add(t);
 			}
 			
-		
+			rs.close();
+			stmt.close();
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -242,10 +244,10 @@ public class DBManager {
 	 * @param TeileID ... die gesuchte TeileID nach der gesucht werden soll
 	 * @return ... gibt eine ArrayList an gefundenen Teile zurück
 	 */
-public ArrayList<Teile> searchTeile(int TeileID){
+public ArrayList<Teile> searchTeile(int TeileID) throws SQLException{
 		
 		ArrayList<Teile> teileAL = new ArrayList<Teile>();
-		PreparedStatement stmt = null;
+		PreparedStatement stmt;
 		String sql;
 		ResultSet rs;
 		
@@ -257,7 +259,6 @@ public ArrayList<Teile> searchTeile(int TeileID){
 			
 			rs = stmt.executeQuery();
 		
-			stmt.close();
 			
 			Teile t = new Teile();
 
@@ -271,14 +272,20 @@ public ArrayList<Teile> searchTeile(int TeileID){
 				t.setBezeichnung(rs.getString("bezeichnung"));
 				
 				teileAL.add(t);
+				
+				
 			}
+			rs.close();
+			stmt.close();
 			
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
 		System.out.println(teileAL);
+		
 		
 		return teileAL;
 	}

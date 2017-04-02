@@ -14,7 +14,7 @@
 	
 		Bezeichnung nach Wort durchsuchen:
 		
-		Eingabe: <input type="text" name="bezeichnung"/> <input type="submit"  name="submitSearch" value="Submit" />
+		<input type="text" name="bezeichnung"/> <input type="submit"  name="submitSearch" value="Submit" />
 		<br/>
 		<br/>
 		<h1>Ergebnisse</h1>
@@ -43,7 +43,6 @@
 					private String Bezeichnung;**/
 					
 					for(int i = 0; i < teile.size(); i++){
-						out.print("<tr onclick=\"loadDoc()\"");	
 						out.println("<td>"+teile.get(i).getTeileID()+"</td>");
 						out.println("<td>"+teile.get(i).getVerkaufsID()+"</td>");
 						out.println("<td>"+teile.get(i).getKompatibleKFZ()+"</td>");
