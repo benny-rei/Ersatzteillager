@@ -8,7 +8,10 @@
 </head>
 <body>
 
-	
+	<form action="MenuServlet" method="POST">
+		<input type="submit" name="nach Teilen suchen" value="Submit"/>
+		<input type="submit" name="Teil erstellen" value="Submit"/>
+	</form>	
 
 </body>
 </html>
