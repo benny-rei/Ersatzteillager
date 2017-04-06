@@ -8,6 +8,23 @@
 
 <script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="js/app-ajax.js" type="text/javascript"></script>
+
+
+<style>
+	table, tr, th{
+		border: 1px solid #4F4F4F;
+		border-collapse: collapse;
+		
+	}
+	
+	tr, th{
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	
+	
+</style>
+
 </head>
 <body>
 	<form id="form" action="TeileServlet" method="POST">
@@ -79,4 +96,7 @@
 
 
 </body>
+
+
+
 </html>

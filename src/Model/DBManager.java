@@ -195,13 +195,14 @@ public class DBManager {
 	 * durchsucht die alle Teile nach einem eingebenen Stichwort
 	 * @param word ... das gesuchte Stichwort, welches in der Beschreibung vorkommen soll
 	 * @return ... gibt eine ArrayList an gefundenen Teile zurück
+	 * @throws SQLException 
 	 */
-	public ArrayList<Teile> searchTeile(String word){
+	public ArrayList<Teile> searchTeile(String word) throws SQLException{
 		
 		ArrayList<Teile> teileAL = new ArrayList<Teile>();
 		PreparedStatement stmt = null;
 		String sql;
-		ResultSet rs;
+		ResultSet rs = null;
 		
 		try {
 			sql = "Select * from Teile where bezeichnung like ?";
@@ -210,7 +211,7 @@ public class DBManager {
 			stmt.setString(1,"%"+word+"%");
 			
 			rs = stmt.executeQuery();
-		
+			stmt.close();
 			
 			while(rs.next()){
 				Teile t = new Teile();
@@ -225,14 +226,16 @@ public class DBManager {
 				teileAL.add(t);
 			}
 			
+			
 			rs.close();
-			stmt.close();
+			
 			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		System.out.println( teileAL);
 		
@@ -244,7 +247,7 @@ public class DBManager {
 	 * @param TeileID ... die gesuchte TeileID nach der gesucht werden soll
 	 * @return ... gibt eine ArrayList an gefundenen Teile zurück
 	 */
-public ArrayList<Teile> searchTeile(int TeileID) throws SQLException{
+/*public ArrayList<Teile> searchTeile(int TeileID){
 		
 		ArrayList<Teile> teileAL = new ArrayList<Teile>();
 		PreparedStatement stmt;
@@ -258,7 +261,8 @@ public ArrayList<Teile> searchTeile(int TeileID) throws SQLException{
 			stmt.setInt(1, TeileID);
 			
 			rs = stmt.executeQuery();
-		
+			
+			stmt.close();
 			
 			Teile t = new Teile();
 
@@ -273,22 +277,21 @@ public ArrayList<Teile> searchTeile(int TeileID) throws SQLException{
 				
 				teileAL.add(t);
 				
-				
 			}
 			rs.close();
-			stmt.close();
 			
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
+				
 		}
+		
 		System.out.println(teileAL);
 		
 		
 		return teileAL;
-	}
+	}*/
 
 	/**
 	 * durchsucht die alle Kunden nach einem eingebenen Stichwort
@@ -326,6 +329,7 @@ public ArrayList<Teile> searchTeile(int TeileID) throws SQLException{
 
 				kundenAL.add(k);
 			}
+			
 			
 		
 		} catch (SQLException e) {

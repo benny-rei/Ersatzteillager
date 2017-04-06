@@ -9,5 +9,9 @@
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0"/>
 	<classpathentry kind="lib" path="G:/Downloads/mysql-connector-java-5.1.41.zip"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/_Library_Tomcat"/>
+<<<<<<< Upstream, based on branch 'master' of https://github.com/benny-rei/Ersatzteillager
+=======
+	<classpathentry kind="lib" path="/Users/Benny/Downloads/javax.servlet-api-3.1.0.jar"/>
+>>>>>>> 244a351 
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
